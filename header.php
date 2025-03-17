@@ -651,26 +651,26 @@
     <div class="float-sm">
       <div class="fl-fl float-fb">
         <img class="fa fa-facebook" src="https://img.icons8.com/ios-filled/1A1A1A/facebook-f.png" alt="facebook-f"/>
-        <a href="https://www.facebook.com/auctechmarketing" target="_blank"> Like us!</a>
+        <a href="#" target="_blank"> Like us!</a>
       </div>
       
       <div class="fl-fl float-tw">
           <img class="fa fa-twitter" src="https://img.icons8.com/ios-filled/1A1A1A/twitterx--v2.png" alt="twitterx--v2"/>
-        <a href="https://x.com/auctechmarcom" target="_blank">Follow us!</a>
+        <a href="#" target="_blank">Follow us!</a>
       </div>
      
       <div class="fl-fl float-rs">
         <img class="fa fa-linkedin" src="https://img.icons8.com/ios-glyphs/1A1A1A/linkedin-2--v1.png" alt="linkedin-2--v1"/>
-        <a href="https://www.linkedin.com/" target="_blank">Follow us !</a>
+        <a href="#" target="_blank">Follow us !</a>
       </div>
       <div class="fl-fl float-ig">
         <img class="fa fa-instagram" src="https://img.icons8.com/external-tal-revivo-bold-tal-revivo/1A1A1A/external-instagram-photo-and-video-sharing-social-networking-service-owned-by-facebook-logo-bold-tal-revivo.png" alt="instagram-new--v1"/>
         
-        <a href="https://www.instagram.com/auctechmarketing/" target="_blank">Follow us!</a>
+        <a href="#" target="_blank">Follow us!</a>
       </div>
       <div class="fl-fl float-wh">
         <img class="fa fa-whatsapp" src="https://img.icons8.com/ios-filled/50/1A1A1A/whatsapp--v1.png" alt="whatsapp--v1"/>
-        <a href="https://wa.me/916386452123" target="_blank">Follow us!</a>
+        <a href="#" target="_blank">Follow us!</a>
       </div>
     </div>	
     
@@ -681,7 +681,7 @@
                 <div class="col-5 col-lg-2">
                     <!-- Start Logo Area -->
                     <div class="logo-area">
-                        <a href="https://www.auctech.in/"><img src="images/logo/logo-white.png" alt="Auctech-Logo"></a>
+                        <a href="index.php"><img src="images/logo/logo-white.png" alt="Auctech-Logo"></a>
                     </div>
                     <!-- End Logo Area -->
                 </div>
@@ -689,20 +689,9 @@
                     <!-- Start Navigation Area -->
                     <div class="navigation-area">
                         <ul class="main-menu nav">
-                            <li><a href="https://www.auctech.in/marcom-lab.php">MarCom Lab</a></li>
-                            <li class="has-submenu"><a href="javascript:void(0)">Department <span class="icon icon-arrow-down" style="color:#fff !important; font-size:8px"></span></a>
-                              <ul class="submenu-nav">
-                                <li><a href="https://www.auctech.in/creative-production.php">Creative Production</a></li>
-                                <li><a href="https://www.auctech.in/marcom-consulting.php">MarCom Consulting</a></li>
-                                <li><a href="https://www.auctech.in/tech-consulting.php">Tech Consulting</a></li>
-                                <li><a href="https://www.auctech.in/system-integration.php">System Integration</a></li>
-                              </ul>
-                            </li>
-                            <li><a href="https://www.auctech.in/partners.php">PARTNERS</a></li>
-                            <li><a href="#">Experts & Scientist</a></li>
-                            <li><a href="https://www.auctech.in/portfolio">Inventions</a></li>
-                            <li><a href="https://www.auctech.in/whitepapers.php">Whitepapers</a></li>
-                            <li><a href="https://www.auctech.in/contact.php">Contact</a></li>
+                            <li><a href="index.php">Projects</a></li>
+
+                            <li><a href="contact.php">Contact</a></li>
                         </ul>
                     </div>
                     <!-- End Navigation Area -->
@@ -732,39 +721,9 @@
             <div class="mb-body">
                 <ul class="nav-ul-mb" id="wrapper-menu-navigation">
                     <li class="nav-mb-item"><a href="#"> <span>Home</span> </a></li>
-                    <li class="nav-mb-item"><a href="#"> <span>MarCom Lab</span> </a></li>
-                    <li class="nav-mb-item">
-                        <a href="#dropdown-menu-five" class="collapsed mb-menu-link current" data-bs-toggle="collapse" aria-expanded="true" aria-controls="dropdown-menu-five">
-                            <span>Department</span>
-                            <span class="btn-open-sub"></span>
-                        </a>
-                        <div id="dropdown-menu-five" class="collapse">
-                            <ul class="sub-nav-menu">
-                                <li><a href="#" class="sub-nav-link">Creative Production</a></li>
-                                <li><a href="#" class="sub-nav-link">MarCom Consulting</a></li>
-                                <li><a href="#" class="sub-nav-link">Right sidebar</a></li>
-                                <li><a href="#" class="sub-nav-link">Tech Consulting</a></li>
-                                <li><a href="#" class="sub-nav-link">System Integration</a></li>
-                            </ul>
-                        </div>
-                        
-                    </li>
-                    <li class="nav-mb-item"><a href="#"> <span>PARTNERS</span> </a></li>
-                    <li class="nav-mb-item"><a href="#"> <span>Experts & Scientist</span> </a></li>
-                    <li class="nav-mb-item"><a href="#"> <span>Inventions</span> </a></li>
-                    <li class="nav-mb-item"><a href="#"> <span>Whitepapers</span> </a></li>
+                    <li class="nav-mb-item"><a href="#"> <span>Projects</span> </a></li>
                     <li class="nav-mb-item"><a href="#"> <span>Contact</span> </a></li>
                 </ul>
-                <!--<div class="mb-other-content">-->
-                <!--    <ul class="mb-info">-->
-                <!--        <li>Address: Flat 101, Shaligram Building,-->
-                <!--            New Jiamau, 1090 Chauraha,-->
-                <!--            <br> Lucknow, Uttar Pradesh 226001.-->
-                <!--        </li>-->
-                <!--        <li>Email: <b>info@auctech.in</b></li>-->
-                <!--        <li>Phone: <b>+91 6386452123, 9838075490</b></li>-->
-                <!--    </ul>-->
-                <!--</div>-->
             </div>
         </div>
     </div>
