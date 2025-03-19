@@ -5955,7 +5955,7 @@ header.header-bg {
   right: -84px;
 }
 .wrap-carousel .sw-dots {
-  display: none;
+  /* display: none; */
 }
 .wrap-carousel.wrap-sw-2 .nav-sw {
   top: 37%;

@@ -11,20 +11,7 @@ $total_feature_project = $con->query("SELECT COUNT(*) AS total FROM add_project 
 // Get total count of blogs
 $total_king_project = $con->query("SELECT COUNT(*) AS total FROM add_project WHERE king_status = 1")->fetch_assoc()['total'];
 
-// Query to get the count of projects by industry
-$query = "SELECT im.industry_name, COUNT(ap.id) AS total_projects
-          FROM add_industry_master im
-          LEFT JOIN add_project ap ON im.industry_name = ap.industry_name
-          GROUP BY im.industry_name";
 
-// Execute the query
-$result = $con->query($query);
-
-// Store industry project data
-$industry_projects = [];
-while ($row = $result->fetch_assoc()) {
-    $industry_projects[] = $row;
-}
 ?>
 
 <!DOCTYPE html>
@@ -111,123 +98,7 @@ while ($row = $result->fetch_assoc()) {
             </div>
 
             <!-- Industry Pie Chart -->
-            <div class="row">
-                <div class="col-lg-4 col-sm-6 col-xl-12">
-                    <div class="card shadow-sm">
-                        <div class="stat-widget-two card-body">
-                            <div class="stat-content d-flex align-items-center justify-content-center">
-                                <div class="stat-digit ml-auto">
-                                    <canvas id="industryPieChart" width="250" height="250"></canvas>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Chart.js and Data Labels Script -->
-            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-            <script>
-                var industryData = <?php echo json_encode($industry_projects); ?>;
-
-                var labels = industryData.map(function(industry) {
-                    return industry.industry_name;
-                });
-
-                var data = industryData.map(function(industry) {
-                    return industry.total_projects;
-                });
-
-                var colors = [
-                    '#FF5733', // Red-Orange
-                    '#33FF57', // Green
-                    '#3357FF', // Blue
-                    '#FF33A8', // Pink
-                    '#FFD700', // Gold
-                    '#8A2BE2', // BlueViolet
-                    '#FF4500', // OrangeRed
-                    '#00FA9A' // MediumSpringGreen
-                ];
-
-                var ctx = document.getElementById('industryPieChart').getContext('2d');
-                var industryPieChart = new Chart(ctx, {
-                    type: 'pie',
-                    data: {
-                        labels: labels,
-                        datasets: [{
-                            label: 'Total Projects per Industry',
-                            data: data,
-                            backgroundColor: colors.slice(0, data.length),
-                            hoverOffset: 6,
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            datalabels: {
-                                color: '#fff',
-                                formatter: function(value, context) {
-                                    var total = context.dataset.data.reduce((acc, val) => acc + val, 0);
-                                    var percentage = ((value / total) * 100).toFixed(2);
-                                    return percentage + '%';
-                                },
-                                font: {
-                                    weight: 'bold',
-                                    size: 14,
-                                },
-                                anchor: 'center',
-                                align: 'center',
-                            },
-                            legend: {
-                                position: 'top',
-                                labels: {
-                                    font: {
-                                        size: 14,
-                                        weight: 'bold',
-                                    },
-                                    color: '#333',
-                                },
-                            },
-                            tooltip: {
-                                backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                                titleFont: {
-                                    size: 16,
-                                    weight: 'bold',
-                                },
-                                bodyFont: {
-                                    size: 14,
-                                },
-                                callbacks: {
-                                    label: function(tooltipItem) {
-                                        var total = tooltipItem.dataset.data.reduce((acc, val) => acc + val, 0);
-                                        var value = tooltipItem.raw;
-                                        var percentage = ((value / total) * 100).toFixed(2);
-                                        return tooltipItem.label + ': ' + value + ' projects (' + percentage + '%)';
-                                    },
-                                }
-                            },
-                            title: {
-                                display: true,
-                                text: 'Total Projects per Industry',
-                                font: {
-                                    size: 20,
-                                    weight: 'bold',
-                                },
-                                color: '#333',
-                                padding: {
-                                    top: 20,
-                                    bottom: 20,
-                                },
-                                align: 'start' // Align the title to the left
-                            }
-                        },
-                        animation: {
-                            animateScale: true,
-                            animateRotate: true,
-                        },
-                    }
-                });
-            </script>
         </div>
     </div>
 

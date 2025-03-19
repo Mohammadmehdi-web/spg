@@ -28,13 +28,8 @@
         color: #454545;
         padding: 0.3rem 0.7rem;
     }
-    .maxsize{
-        margin-top:1vh;
-        font-size:12px;
-    }
-    .file{
-        margin-top:1vh !important;
-    }
+   
+    
     </style>
 </head>
 
@@ -69,15 +64,15 @@
                                             <input type="file" name='image' class="form-control file" required>
                                         </div>
                                         <div class="form-group col-md-6">
-                                            <label>Banner Type</label>
-                                            <select id="inputState" name="type" class="form-control mt-3">
+                                            <label class="mb-4">Banner Type</label>
+                                            <select id="inputState" name="type" class="form-control mt-4">
                                                 <option selected>--Select--</option>
                                                 <option value="Banner">Banner</option>
                                                 <option value="Project">Project</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="form-row">
+                                    <div class="form-row mt-2">
                                         <div class="form-group col-md-6">
                                             <label>Banner Title</label>
                                             <input type="text" name='title' class="form-control"
@@ -90,7 +85,7 @@
                                         </div>
                                     </div>
 
-                                    <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                                    <button type="submit" name="submit" class="btn btn-primary mt-4 mb-4">Submit</button>
                                 </form>
                             </div>
                         </div>

@@ -62,14 +62,14 @@
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Phone</th>
-                                        <th>Website</th>
+                                        <th>Project Name</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
                                         include('../db_con.php');
-                                        $fetch_query = "SELECT * FROM queries";
+                                        $fetch_query = "SELECT * FROM contact";
                                         $result = mysqli_query($con, $fetch_query);
                                         $i = 1;
                                         while ($row = mysqli_fetch_array($result)) {
@@ -78,20 +78,8 @@
                                         <td><?php echo $i; ?></td>
                                         <td><?php echo $row['name']; ?></td>
                                         <td><?php echo $row['email']; ?></td>
-                                        <td><?php echo $row['mobile']; ?></td>
-                                        <?php  
-                                            $project_id = $row['project_id'];  // Fetch project ID from current row
-                                            $projctname_query = "SELECT pro_tile FROM add_project WHERE id = $project_id"; 
-                                            $projctname_result = mysqli_query($con, $projctname_query);
-                                            
-                                            if ($projctname_result) {
-                                                $projctname_data = mysqli_fetch_assoc($projctname_result);
-                                                echo "<td>" . $projctname_data['pro_tile'] . "</td>";
-                                            } else {
-                                                echo "<td>Error fetching project</td>";
-                                            }
-                                            ?>
-                                       
+                                        <td><?php echo $row['phone']; ?></td>
+                                        <td><?php echo $row['page_url']; ?></td>
 
                                         <td>
                                         <form method="POST" action="contact_dlt.php">

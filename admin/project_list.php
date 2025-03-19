@@ -128,8 +128,6 @@
                                             <th>Project Name</th>
                                             <th>Project Url</th>
                                             <th>Status</th>
-                                            <th class="text-center">Featured</th>
-                                            <th class="text-center">King</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -150,8 +148,6 @@
 
                                             
                                             $status_checked = ($row['status'] == 1) ? 'checked' : '';
-                                            $king_status_checked = ($row['king_status'] == 1) ? 'checked' : '';
-                                            $feature_status_checked = ($row['feature_status'] == 1) ? 'checked' : '';
                                         ?>
                                         <tr>
                                             <td><?php echo $i; ?></td>
@@ -159,7 +155,7 @@
                                                     alt="Image" class="img-thumbnail"
                                                     style="max-width: 80px; height: auto;"></td>
                                             <td><?php echo $row['pro_tile'];?></td>
-                                            <td><?php echo $row['website_urls']; ?></td>
+                                            <td><?php echo $row['pro_url']; ?></td>
                                             <td>
                                                 <label class="switch">
                                                     <input type="checkbox" class="status-toggle"
@@ -168,27 +164,7 @@
                                                     <span class="slider round"></span>
                                                 </label>
                                             </td>
-                                         
-                                            <td>
-                                                <div class="custom-image-checkbox d-flex justify-content-center">
-                                                    <input type="checkbox" id="feature-status-<?php echo $row['id']; ?>" 
-                                                           class="feature-status-toggle" 
-                                                           data-project-id="<?php echo $row['id']; ?>" 
-                                                           data-feature-status="<?php echo $row['feature_status']; ?>"
-                                                           <?php echo ($row['feature_status'] == 1) ? 'checked' : ''; ?> />
-                                                    <label for="feature-status-<?php echo $row['id']; ?>"></label>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="custom-image-checkbox d-flex justify-content-center">
-                                                    <input type="checkbox" id="king-status-<?php echo $row['id']; ?>" 
-                                                           class="king-status-toggle" 
-                                                           data-project-id="<?php echo $row['id']; ?>" 
-                                                           data-king-status="<?php echo $row['king_status']; ?>"
-                                                           <?php echo ($row['king_status'] == 1) ? 'checked' : ''; ?> />
-                                                    <label for="king-status-<?php echo $row['id']; ?>"></label>
-                                                </div>
-                                            </td>
+                                        
                                             <td>
                                                 <a class="btn btn-primary shadow btn-xs sharp me-1"
                                                     href="project_edit.php?user_id=<?php echo $row['id']; ?>"
@@ -269,83 +245,7 @@
 });
 
     </script>
-    <script>
-    $(document).ready(function() {
-    var table = $('#example').DataTable();
 
-    table.on('draw', function() {
-        // Re-bind the event handlers after DataTable redraws the table (pagination changes)
-        $('.king-status-toggle').off('change').on('change', function() {
-            var projectId = $(this).data('project-id');
-            var newStatus = $(this).prop('checked') ? 1 : 0;
-
-            $.ajax({
-                url: 'update_project_king_status.php',
-                type: 'POST',
-                data: {
-                    project_id: projectId,
-                    king_status: newStatus
-                },
-                success: function(response) {
-                    if(response == 'success') {
-                        alert('King Status updated successfully!');
-                    } else {
-                        alert('Error updating King Status!');
-                    }
-                }
-            });
-        });
-
-        
-    });
-});
-
-    </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-           
-            const tableBody = document.querySelector('tbody');
-
-            tableBody.addEventListener('change', function(e) {
-                if (e.target && e.target.classList.contains('feature-status-toggle')) {
-                    const checkbox = e.target;
-                    const projectId = checkbox.getAttribute('data-project-id');
-                    const featureStatus = checkbox.checked ? 1 : 0; 
-
-                  
-                    fetch('update_project_feature_status.php', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            project_id: projectId,
-                            feature_status: featureStatus
-                        })
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            //console.log('Feature status updated.');
-                             alert('Feature status updated.');
-                        } else {
-                            alert('Failed to update feature status.');
-                           
-                            checkbox.checked = !checkbox.checked;
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert('There was an error updating the feature status.');
-                        
-                        checkbox.checked = !checkbox.checked;
-                    });
-                }
-            });
-        });
-
-    </script>
 
 
 </body>

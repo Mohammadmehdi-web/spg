@@ -8,34 +8,33 @@ if (isset($_POST['submit'])) {
 
     try {
         // Retrieve form data
-        $id = $_POST['id']; // Assuming you are passing the project ID in the form
+        $id = $_POST['id']; 
         $pro_url_first = $_POST['pro_url'];
         $pro_url = str_replace(' ', '-', $pro_url_first);
 
-        $pro_category = $_POST['pro_category'];
-        $industry_name = $_POST['industry_name'];
-        $country_name = $_POST['country_name'];
-        $year = $_POST['year'];
+        $totalarea = $_POST['totalarea'];
+        $totalamount = $_POST['totalamount'];
+        $address = $_POST['address'];
         $pro_tile = $_POST['pro_tile'];
         $highlight_text = $_POST['highlight_text'];
-        $client_name = $_POST['client_name'];
-        $website_urls = $_POST['website_urls'];
+        $property = $_POST['property'];
         $status = $_POST['status'];
+        $city_name = $_POST['city_name'];
         $project_brief = $_POST['project_brief'];
         $create_at = date('Y-m-d');
 
         // Prepare SQL statement for updating the project
         $sql = "UPDATE add_project SET 
+                
                 pro_url = ?, 
-                pro_category = ?, 
-                industry_name = ?, 
-                country_name = ?, 
-                year = ?, 
+                totalarea = ?, 
+                totalamount = ?, 
+                address = ?, 
                 pro_tile = ?, 
                 highlight_text = ?, 
-                client_name = ?, 
-                website_urls = ?, 
+                 property = ?,
                 status = ?, 
+                city_name = ?,
                 project_brief = ?, 
                 created_at = ? 
                 WHERE id = ?";
@@ -46,7 +45,7 @@ if (isset($_POST['submit'])) {
         }
 
         // Bind parameters
-        $stmt->bind_param("ssssssssssssi", $pro_url, $pro_category, $industry_name, $country_name, $year, $pro_tile, $highlight_text, $client_name, $website_urls, $status, $project_brief, $create_at, $id);
+        $stmt->bind_param("sssssssssssi", $pro_url,  $totalarea, $totalamount, $address, $pro_tile, $highlight_text, $property, $status, $city_name, $project_brief, $create_at, $id);
 
         // Execute the query
         if (!$stmt->execute()) {
